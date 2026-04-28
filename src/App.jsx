@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "contentful";
 
+
 const client = createClient({
   space: "kkh4fdzuzspr",
   accessToken: "PFXEGy0ET409cMJ50ydmu0Uu0-o1B0f0rGUleR-cU7Q",
@@ -42,9 +43,9 @@ function App() {
   return (
 <div>
       {/* HEADER */}
-<header>
+<header className="mainHeader">
 <h1>{header?.fields.title}</h1>
-        <img
+        <img className="mainImg"
           src={header?.fields.headerImage?.fields.file.url}
           alt="Header"
           width="500"
