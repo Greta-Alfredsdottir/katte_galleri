@@ -38,7 +38,6 @@ function App() {
   const footer = items.find((item) => item.sys.contentType.sys.id === "footer");
   const billedereEntry = items.find((item) => item.sys.contentType.sys.id === "billeder");
   const billederImages = billedereEntry?.fields.billeder || [];
-console.log(billedereEntry);
 
   return (
 <div>
