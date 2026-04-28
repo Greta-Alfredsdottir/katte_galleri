@@ -38,19 +38,26 @@ function App() {
   const footer = items.find((item) => item.sys.contentType.sys.id === "footer");
   const billedereEntry = items.find((item) => item.sys.contentType.sys.id === "billeder");
   const billederImages = billedereEntry?.fields.billeder || [];
+console.log(billedereEntry);
 
   return (
 <div>
       {/* HEADER */}
 <header>
 <h1>{header?.fields.title}</h1>
+        <img
+          src={header?.fields.headerImage?.fields.file.url}
+          alt="Header"
+          width="500"
+        />
 </header>
       {/* INFO */}
 <section>
-<p>{info?.fields.title}</p>
+<p>{info?.fields.information}</p>
 </section>
       {/* BILLEDER */}
 <section>
+  <p>{billedereEntry?.fields.billedetext}</p>
         {billederImages.map((img) => (
 <img
             key={img.sys.id}
