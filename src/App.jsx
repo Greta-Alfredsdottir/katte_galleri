@@ -1,16 +1,73 @@
-import { useState } from 'react'
+import { useEffect, useState } from "react";
+import { createClient } from "contentful";
 
-
+const client = createClient({
+  space: "kkh4fdzuzspr",
+  accessToken: "PFXEGy0ET409cMJ50ydmu0Uu0-o1B0f0rGUleR-cU7Q",
+});
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [items, setItems] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    client
+      .getEntries() // henter alt
+
+      .then((response) => {
+
+        setItems(response.items);
+
+        setLoading(false);
+      })
+
+      .catch((err) => {
+
+        console.error(err);
+      });
+
+  }, []);
+
+  if (loading) return <p>Loader...</p>;
+
+  // Extract content by type
+  const header = items.find((item) => item.sys.contentType.sys.id === "header");
+  const info = items.find((item) => item.sys.contentType.sys.id === "info");
+  const footer = items.find((item) => item.sys.contentType.sys.id === "footer");
+  const billedereEntry = items.find((item) => item.sys.contentType.sys.id === "billeder");
+  const billederImages = billedereEntry?.fields.billeder || [];
 
   return (
-    <>
-    
-      
-    </>
-  )
+<div>
+      {/* HEADER */}
+<header>
+<h1>{header?.fields.title}</h1>
+</header>
+      {/* INFO */}
+<section>
+<p>{info?.fields.title}</p>
+</section>
+      {/* BILLEDER */}
+<section>
+        {billederImages.map((img) => (
+<img
+            key={img.sys.id}
+            src={img.fields.file.url}
+            alt=""
+            width="300"
+          />
+        ))}
+</section>
+      {/* FOOTER */}
+<footer>
+<p>{footer?.fields.medlemmer}</p>
+</footer>
+</div>
+  );
+
 }
 
-export default App
+export default App;
+ 
