@@ -1,12 +1,13 @@
 #root{
     background-color: bisque;
    
+}
+
     .mainHeader{
         font-size: 2rem;
         display: flex;
         align-items: center;
     }
     .mainImg{
-        size-adjust: 50%;
+     
     }
-}
