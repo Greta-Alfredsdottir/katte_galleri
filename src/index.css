@@ -9,5 +9,21 @@
         align-items: center;
     }
     .mainImg{
-     
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: 3rem, 1rem;
+        margin: 5px;
+        border: 1px solid #ccc;
+        width: 180px;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+    .secondImg{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin: 5px;
+            border: 1px solid #ccc;
+            width: 180px;
     }

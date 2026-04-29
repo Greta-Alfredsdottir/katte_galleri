@@ -45,7 +45,7 @@ function App() {
       {/* HEADER */}
 <header className="mainHeader">
 <h1>{header?.fields.title}</h1>
-        <img className="mainImg"
+        <img className="secondImg"
           src={header?.fields.headerImage?.fields.file.url}
           alt="Header"
           width="500"
@@ -59,7 +59,7 @@ function App() {
 <section>
   <p>{billedereEntry?.fields.billedetext}</p>
         {billederImages.map((img) => (
-<img
+<img className="mainImg"
             key={img.sys.id}
             src={img.fields.file.url}
             alt=""
