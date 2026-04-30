@@ -32,7 +32,7 @@ section:has(img.mainImg){
 /* Image styling: uniform size, cropped with object-fit */
 .mainImg{
     /* Preserve aspect ratio and avoid stretching */
-    width: auto !important;
+    width: auto !important; /* !important, overtager først i rækken*/
     max-width: 100% !important;
     height: auto !important;
     max-height: 100% !important; /* fit into the grid-auto-rows height */
