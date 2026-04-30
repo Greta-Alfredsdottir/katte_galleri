@@ -9,7 +9,7 @@ const client = createClient({
 
 function App() {
 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]); // Dette er en Hook, den gemmer data der kan ændre sig
 
   const [loading, setLoading] = useState(true);
 
